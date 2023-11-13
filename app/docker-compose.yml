@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  flask-app:
+    image: abhinavs2000/flask-app:1.0  # Use the image name you specified in the Dockerfile
+    ports:
+      - "5000:5000"  # Map the Flask app port
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Map the MongoDB port
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:
